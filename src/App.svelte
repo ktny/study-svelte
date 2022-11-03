@@ -1,11 +1,25 @@
 <script>
-  let count = 0;
+  let numbers = [1,2,3,4];
 
-  function incrementCount() {
-    count += 1;
+  function addNumber() {
+    // numbers.push(numbers.length + 1);
+    // numbers = numbers;
+    numbers = [...numbers, numbers.length + 1];
   }
+
+  $: sum = numbers.reduce((t, n) => t + n, 0);
+
+  // function incrementCount() {
+  //   count += 1;
+  // }
 </script>
 
-<button on:click={incrementCount}>
+<p>{numbers.join(" + ")} = {sum}</p>
+
+<button on:click={addNumber}>Add a number</button>
+
+<!-- <button on:click={incrementCount}>
   Clicked {count} {count === 1 ? "time" : "times"}
 </button>
+
+<p>{count} doubled is {doubled}</p> -->
